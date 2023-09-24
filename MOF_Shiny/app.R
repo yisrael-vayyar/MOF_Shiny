@@ -11,7 +11,7 @@ library(shiny)
 library(readxl)
 library(tidyverse)
 
-schools <- read_excel("../data/schools_full.xlsx")
+schools <- read_excel("schools_full.xlsx")
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(

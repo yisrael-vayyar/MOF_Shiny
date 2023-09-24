@@ -1,0 +1,12 @@
+name: mof_shiny
+title:
+username: mofeducation
+account: mofeducation
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 9969182
+bundleId: 7720799
+url: https://mofeducation.shinyapps.io/mof_shiny/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
