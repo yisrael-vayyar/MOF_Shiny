@@ -7,6 +7,7 @@
 #    http://shiny.rstudio.com/
 #
 
+
 library(shiny)
 library(readxl)
 library(tidyverse)
@@ -90,13 +91,21 @@ ui <- fluidPage(
 server <- function(input, output, session) {
     
     observe({
+      
+      filtered <- schools %>%
+        filter(year >= input$year[1] & year <= input$year[2]) %>%
+        filter(class_type %in% input$ClassType) %>%
+        filter(school_edu_type %in% input$SchoolEduType) %>%
+        filter(class_edu_type %in% input$ClassEduType) %>%
+        filter(district %in% input$district)
+      
       if(input$selectall == FALSE)
       {
-        updateCheckboxGroupInput(session,"ClassType",choices=unique(schools$class_type))
+        updateCheckboxGroupInput(session,"ClassType",choices=unique(filtered$class_type))
       }
       else
       {
-        updateCheckboxGroupInput(session,"ClassType",choices=unique(schools$class_type),selected=unique(schools$class_type))
+        updateCheckboxGroupInput(session,"ClassType",choices=unique(filtered$class_type),selected=unique(filtered$class_type))
       }
     })
   
